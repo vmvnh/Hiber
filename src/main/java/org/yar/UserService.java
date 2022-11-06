@@ -1,13 +1,12 @@
-import java.util.List;
+package org.yar;
 
 public class UserService {
 
   private UserDao usersDao = new UserDao();
 
-  public UserService() {
-  }
+  public UserService() {}
 
-  public User findUser(int id) {
+  public User findUser(long id) {
     return usersDao.findById(id);
   }
 
@@ -15,13 +14,9 @@ public class UserService {
     usersDao.save(user);
   }
 
-  public void deleteUser(User user) {
-    usersDao.delete(user);
+  public void deleteUser(long id) {
+    usersDao.delete(id);
   }
 
   public void updateUser(User user) {usersDao.update(user);}
-
-  public List<User> findAllUsers() {
-    return usersDao.findAll();
-  }
 }

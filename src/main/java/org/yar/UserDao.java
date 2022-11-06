@@ -1,10 +1,11 @@
+package org.yar;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import java.util.List;
 
 public class UserDao {
 
-  public User findById(int id) {
+  public User findById(long id) {
     return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(User.class, id);
   }
 
@@ -24,16 +25,12 @@ public class UserDao {
     session.close();
   }
 
-  public void delete(User user) {
+  public void delete(long id) {
+    var user = findById(id);
     Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
     Transaction tx1 = session.beginTransaction();
     session.delete(user);
     tx1.commit();
     session.close();
-  }
-
-  public List<User> findAll() {
-    List<User> users = (List<User>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From User").list();
-    return users;
   }
 }
