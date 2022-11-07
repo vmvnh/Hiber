@@ -37,6 +37,6 @@ public class Controller {
     User user = service.findUser(id);
     user.setName(name);
     service.updateUser(user);
-    return "Entity update to DB.";
+    return "Entity update to DB";
   }
 }

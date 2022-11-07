@@ -24,6 +24,6 @@ public class User implements Serializable {
   private String name;
 
   public String toString() {
-    return "Id: " +this.id+ " Name: " +this.name;
+    return "Id: " +this.id+ " Name: " +this.name+ ".";
   }
 }
